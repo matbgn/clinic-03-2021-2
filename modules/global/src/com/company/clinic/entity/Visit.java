@@ -2,9 +2,12 @@ package com.company.clinic.entity;
 
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
+import com.haulmont.cuba.core.entity.annotation.Listeners;
 import com.haulmont.cuba.core.entity.annotation.Lookup;
 import com.haulmont.cuba.core.entity.annotation.LookupType;
+import com.haulmont.cuba.core.entity.annotation.PublishEntityChangedEvents;
 
+import javax.annotation.PostConstruct;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
@@ -12,11 +15,16 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@PublishEntityChangedEvents
 @Table(name = "CLINIC_VISIT")
 @Entity(name = "clinic_Visit")
 @NamePattern("%s|description")
+@Listeners("clinic_VisitEntityListener")
 public class Visit extends StandardEntity {
     private static final long serialVersionUID = -8254124810105648524L;
+
+    @Column(name = "NUMBER_")
+    private Long number;
 
     @Lookup(type = LookupType.DROPDOWN, actions = "lookup")
     @NotNull
@@ -51,6 +59,14 @@ public class Visit extends StandardEntity {
             inverseJoinColumns = @JoinColumn(name = "CONSUMABLE_ID"))
     @ManyToMany
     private List<Consumable> consumables;
+
+    public Long getNumber() {
+        return number;
+    }
+
+    public void setNumber(Long number) {
+        this.number = number;
+    }
 
     public List<Consumable> getConsumables() {
         return consumables;
@@ -106,5 +122,11 @@ public class Visit extends StandardEntity {
 
     public void setPet(Pet pet) {
         this.pet = pet;
+    }
+
+    @PostConstruct
+    public void postConstruct() {
+        setAmount(BigDecimal.ZERO);
+        setHoursSpent(0);
     }
 }

@@ -4,4 +4,9 @@
     <view entity="clinic_Veterinarian" name="veterinarian-with-user" extends="_local">
         <property name="user" view="_minimal"/>
     </view>
+    <view entity="clinic_Visit" name="visit-with-owner-view" extends="_local">
+        <property name="pet" view="_minimal">
+            <property name="owner" view="_minimal"/>
+        </property>
+    </view>
 </views>

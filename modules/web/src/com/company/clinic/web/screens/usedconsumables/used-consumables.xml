@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://usedConsumables.caption"
+        messagesPack="com.company.clinic.web.screens.usedconsumables">
+    <data>
+        <collection id="consumablesDc" class="com.company.clinic.entity.Consumable">
+            <view extends="_local"/>
+            <loader id="consumablesDl"/>
+        </collection>
+    </data>
+    <layout>
+        <dataGrid id="consumablesTable" height="100%" width="100%" dataContainer="consumablesDc">
+            <columns>
+                <column id="title" property="title"/>
+                <column id="description" property="description"/>
+                <column id="price" property="price"/>
+            </columns>
+        </dataGrid>
+    </layout>
+</window>
