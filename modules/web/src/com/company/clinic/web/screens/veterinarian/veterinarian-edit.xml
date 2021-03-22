@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://veterinarianEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.clinic.web.screens.veterinarian">
+    <data>
+        <instance id="veterinarianDc"
+                  class="com.company.clinic.entity.Veterinarian">
+            <view extends="veterinarian-with-user"/>
+            <loader/>
+        </instance>
+        <collection id="usersDc" class="com.haulmont.cuba.security.entity.User" view="_minimal">
+            <loader id="usersDl">
+                <query>
+                    <![CDATA[select e from sec$User e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="veterinarianDc">
+            <column width="350px">
+                <lookupPickerField id="userField" optionsContainer="usersDc" property="user"/>
+                <textField id="hourlyRateField" property="hourlyRate"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

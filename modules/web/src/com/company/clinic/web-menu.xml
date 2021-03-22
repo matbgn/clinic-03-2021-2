@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-clinic" insertBefore="administration" caption="mainMsg://menu_config.application-clinic">
+        <item screen="clinic_Consumable.browse" caption="mainMsg://menu_config.clinic_Consumable.browse"/>
+        <item screen="clinic_Owner.browse" caption="mainMsg://menu_config.clinic_Owner.browse"/>
+        <item screen="clinic_Pet.browse" caption="mainMsg://menu_config.clinic_Pet.browse"/>
+        <item screen="clinic_PetType.browse" caption="mainMsg://menu_config.clinic_PetType.browse"/>
+        <item screen="clinic_Veterinarian.browse" caption="mainMsg://menu_config.clinic_Veterinarian.browse"/>
+        <item screen="clinic_Visit.browse" caption="mainMsg://menu_config.clinic_Visit.browse"/>
+    </menu>
+</menu-config>
