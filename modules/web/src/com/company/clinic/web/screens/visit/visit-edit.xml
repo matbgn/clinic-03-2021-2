@@ -32,7 +32,7 @@
             </loader>
         </collection>
     </data>
-    <dialogMode height="600"
+    <dialogMode height="700"
                 width="800"/>
     <layout expand="editActions" spacing="true">
         <form id="form" dataContainer="visitDc">

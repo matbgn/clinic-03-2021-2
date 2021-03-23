@@ -9,7 +9,8 @@
         </collection>
     </data>
     <layout>
-        <dataGrid id="consumablesTable" height="100%" width="100%" dataContainer="consumablesDc">
+        <dataGrid id="consumablesTable" height="100%" width="100%"
+                  dataContainer="consumablesDc">
             <columns>
                 <column id="title" property="title"/>
                 <column id="description" property="description"/>

@@ -7,5 +7,6 @@ import com.company.clinic.entity.PetType;
 @UiDescriptor("pet-type-browse.xml")
 @LookupComponent("petTypesTable")
 @LoadDataBeforeShow
+@PrimaryLookupScreen(PetType.class)
 public class PetTypeBrowse extends StandardLookup<PetType> {
 }

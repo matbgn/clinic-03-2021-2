@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://petEditSampleScreen.caption"
+        messagesPack="com.company.clinic.web.screens.petedit">
+    <data>
+        <instance id="petDc" class="com.company.clinic.entity.Pet">
+            <loader id="petDl"/>
+        </instance>
+    </data>
+    <actions>
+        <action id="createPet" icon="PLUS_CIRCLE" caption="msg://create.pet"/>
+    </actions>
+    <layout>
+        <form id="petEditForm" dataContainer="petDc">
+            <column width="400px">
+                <textField id="name" property="name"/>
+                <textField id="petType" property="petType"/>
+                <textField id="owner" property="owner"/>
+                <buttonsPanel>
+                    <button id="create" action="createPet"/>
+                    <button id="save" icon="SAVE"/>
+                </buttonsPanel>
+            </column>
+        </form>
+    </layout>
+</window>

@@ -8,5 +8,6 @@
         <item screen="clinic_Veterinarian.browse" caption="mainMsg://menu_config.clinic_Veterinarian.browse"/>
         <item screen="clinic_Visit.browse" caption="mainMsg://menu_config.clinic_Visit.browse"/>
         <item screen="clinic_UsedConsumables" caption="mainMsg://menu_config.clinic_UsedConsumables"/>
+        <item screen="clinic_PetEditSampleScreen" caption="mainMsg://menu_config.clinic_PetEditSampleScreen"/>
     </menu>
 </menu-config>

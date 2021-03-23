@@ -10,8 +10,8 @@
             <loader/>
         </instance>
     </data>
-    <dialogMode height="600"
-                width="800"/>
+    <dialogMode height="auto"
+                width="auto" forceDialog="true"/>
     <layout expand="editActions" spacing="true">
         <form id="form" dataContainer="petTypeDc">
             <column width="350px">

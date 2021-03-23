@@ -7,5 +7,6 @@ import com.company.clinic.entity.Pet;
 @UiDescriptor("pet-edit.xml")
 @EditedEntityContainer("petDc")
 @LoadDataBeforeShow
+@PrimaryEditorScreen(Pet.class)
 public class PetEdit extends StandardEditor<Pet> {
 }
