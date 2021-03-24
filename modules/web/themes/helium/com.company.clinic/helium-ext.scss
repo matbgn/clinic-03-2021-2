@@ -1,0 +1,31 @@
+/* Define your theme modifications inside next mixin */
+
+// Use the online editor
+// https://helium-editor.cuba-platform.com/#main/1
+
+@mixin com_company_clinic-helium-ext {
+      /* Basic */
+    --border-color: #625E89;
+    --error-color: #FC2346;
+    --primary-color: #25CDE3;
+    --primary-color_rgb: 37, 205, 227;
+    --secondary-color: #4E4A75;
+    --secondary-color_rgb: 78, 74, 117;
+    --success-color: #22D685;
+    --warning-color: #FDB42B;
+
+      /* Common */
+    --error-color-shade-1: #FB042D;
+    --error-color-shade-2: #DD0328;
+    --error-dim-color: #FD637D;
+    --primary-color-shade-1: #1AB9CB;
+    --primary-color-shade-2: #17A5B5;
+    --primary-dim-color: #61DDEA;
+    --secondary-color-shade-1: #454267;
+    --secondary-color-shade-2: #3C3A5A;
+    --secondary-dim-color: #7773A5;
+    --success-color-shade-1: #1FBD76;
+    --success-color-shade-2: #1BA768;
+    --success-dim-color: #5DE5A7;
+    --warning-contrast-text-color: #454267;
+}
