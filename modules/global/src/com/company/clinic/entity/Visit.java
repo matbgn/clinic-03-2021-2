@@ -19,7 +19,7 @@ import java.util.List;
 @PublishEntityChangedEvents
 @Table(name = "CLINIC_VISIT")
 @Entity(name = "clinic_Visit")
-@NamePattern("%s|description")
+@NamePattern("%s %s|number,pet")
 @Listeners("clinic_VisitEntityListener")
 public class Visit extends StandardEntity {
     private static final long serialVersionUID = -8254124810105648524L;

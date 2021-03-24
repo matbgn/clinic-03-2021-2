@@ -47,6 +47,7 @@
                 <button id="removeBtn" action="ownersTable.remove"/>
                 <button id="excelBtn" action="ownersTable.excel"/>
                 <button id="greetBtn" action="ownersTable.greet"/>
+                <button id="runReport"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">
