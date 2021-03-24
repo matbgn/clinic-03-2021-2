@@ -11,6 +11,7 @@ import com.haulmont.cuba.gui.components.Action;
 import com.haulmont.cuba.gui.components.Calendar;
 import com.haulmont.cuba.gui.components.DateField;
 import com.haulmont.cuba.gui.components.LookupField;
+import com.haulmont.cuba.gui.model.CollectionContainer;
 import com.haulmont.cuba.gui.model.CollectionLoader;
 import com.haulmont.cuba.gui.screen.*;
 import com.haulmont.cuba.security.global.UserSession;
@@ -41,6 +42,8 @@ public class ClinicMainScreen extends MainScreen {
     private VisitService visitService;
     @Inject
     private UserSession userSession;
+    @Inject
+    private CollectionContainer<Visit> visitsDc;
 
     @Subscribe("refresh")
     public void onRefresh(Action.ActionPerformedEvent event) {
@@ -90,5 +93,10 @@ public class ClinicMainScreen extends MainScreen {
 
         dataManager.commit(visit);
         onRefresh(null);
+    }
+
+    @Install(to = "schedule", subject = "enabledRule")
+    private boolean scheduleEnabledRule() {
+        return petSelector.getValue() != null && dateSelector.getValue() != null;
     }
 }
