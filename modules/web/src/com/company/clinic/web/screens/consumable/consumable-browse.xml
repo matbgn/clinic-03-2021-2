@@ -43,6 +43,7 @@
                 <button id="createBtn" action="consumablesTable.create"/>
                 <button id="editBtn" action="consumablesTable.edit"/>
                 <button id="removeBtn" action="consumablesTable.remove"/>
+                <button id="runReport" icon="PRINT" caption="msg://price.list"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">
