@@ -1,12 +1,18 @@
 package com.company.clinic.web.screens;
 
+import com.company.clinic.entity.Pet;
 import com.company.clinic.entity.Visit;
+import com.company.clinic.service.VisitService;
 import com.company.clinic.web.screens.visit.VisitEdit;
+import com.haulmont.cuba.core.global.DataManager;
 import com.haulmont.cuba.gui.ScreenBuilders;
 import com.haulmont.cuba.gui.components.Action;
 import com.haulmont.cuba.gui.components.Calendar;
+import com.haulmont.cuba.gui.components.DateField;
+import com.haulmont.cuba.gui.components.LookupField;
 import com.haulmont.cuba.gui.model.CollectionLoader;
 import com.haulmont.cuba.gui.screen.*;
+import com.haulmont.cuba.security.global.UserSession;
 import com.haulmont.cuba.web.app.main.MainScreen;
 
 import javax.inject.Inject;
@@ -22,10 +28,25 @@ public class ClinicMainScreen extends MainScreen {
     private CollectionLoader<Visit> visitsDl;
     @Inject
     private ScreenBuilders screenBuilders;
+    @Inject
+    private DataManager dataManager;
+    @Inject
+    private CollectionLoader<Pet> petsDl;
+    @Inject
+    private LookupField<Pet> petSelector;
+    @Inject
+    private DateField<LocalDateTime> dateSelector;
+    @Inject
+    private VisitService visitService;
+    @Inject
+    private UserSession userSession;
 
     @Subscribe("refresh")
     public void onRefresh(Action.ActionPerformedEvent event) {
+        petsDl.load();
         visitsDl.load();
+        petSelector.setValue(null);
+        dateSelector.setValue(null);
     }
 
     @Subscribe("visitsCalendar")
@@ -48,5 +69,18 @@ public class ClinicMainScreen extends MainScreen {
 
         visitEdit.show();
 
+    }
+
+    @Subscribe("schedule")
+    public void onSchedule(Action.ActionPerformedEvent event) {
+        Visit visit = dataManager.create(Visit.class);
+
+        visit.setPet(petSelector.getValue());
+        visit.setDate(dateSelector.getValue());
+        visit.setHoursSpent(1);
+        visit.setVeterinarian(visitService.findVetByUser(userSession.getUser()));
+
+        dataManager.commit(visit);
+        onRefresh(null);
     }
 }
