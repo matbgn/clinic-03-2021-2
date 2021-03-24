@@ -3,6 +3,7 @@ package com.company.clinic.web.screens;
 import com.company.clinic.entity.Pet;
 import com.company.clinic.entity.Visit;
 import com.company.clinic.service.VisitService;
+import com.company.clinic.web.screens.petedit.PetEditSampleScreen;
 import com.company.clinic.web.screens.visit.VisitEdit;
 import com.haulmont.cuba.core.global.DataManager;
 import com.haulmont.cuba.gui.ScreenBuilders;
@@ -54,6 +55,13 @@ public class ClinicMainScreen extends MainScreen {
         Visit visit = (Visit) event.getEntity();
 
         if (visit == null) return;
+
+//        Pass data to a screen
+//        PetEditSampleScreen sampleScreen = screenBuilders.screen(this)
+//                .withScreenClass(PetEditSampleScreen.class).build();
+//        sampleScreen.setPetType(visit.getPet().getPetType());
+//
+//        sampleScreen.show();
 
         VisitEdit visitEdit = screenBuilders.editor(Visit.class, this)
                 .withScreenClass(VisitEdit.class)

@@ -28,6 +28,11 @@ public class PetEditSampleScreen extends Screen {
     @Inject
     private DataContext dataContext;
 
+//    Setter used to pass value on screen ClinicMainScreen.java
+//    public void setPetType(PetType petType) {
+//        this.petType = petType;
+//    }
+
     @Subscribe
     public void onBeforeShow(BeforeShowEvent event) {
         owner = dataManager.load(Owner.class).list().get(0);
